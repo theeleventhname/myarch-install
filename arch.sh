@@ -6,14 +6,15 @@ lsblk
 echo "choose a disk to wipe"
 read wipedisk
 
-fdisk $wipedisk
+fdisk /dev/$wipedisk
 
+lsblk
 echo "input boot disk"
 read boot
 echo "input root disk"
 read root 
-mkfs.fat -F32 $boot
-mkfs.ext4 $root
+mkfs.fat -F32 /dev/$boot
+mkfs.ext4 /dev/$root
 
 mount $root /mnt
 mkdir -p /mnt/boot/efi
