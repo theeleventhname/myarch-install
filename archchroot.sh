@@ -38,7 +38,7 @@ echo -e "$user ALL=（ALL）ALL" >> /etc/sudoers
 
 pacman -S alsa-utils pulseaudio-alsa xorg 
 echo -e "if your device is laptap with touch pannel?\n1.yes 2.no"
-read $touch
+read touch
 if [ $touch -eq 1 ];then
 pacman -S xf86-input-synaptics
 else
@@ -51,9 +51,11 @@ systemctl enable NetworkManager sddm dhcpcd
 sddm --example-config > /etc/sddm.conf
 
 echo -e "if your device have bluetooth?\n1.yes 2.no"
-read $bluetooth
+read bluetooth
 if [ $bluetooth -eq 1 ];then
-pacman -S bluez bluez-utils pulseaudio-bluetooth;systemctl enable bluetooth;echo -e "load-module module-bluetooth-policy\nload-module module-bluetooth-discover" >> /etc/pulse/system.pa 
+pacman -S bluez bluez-utils pulseaudio-bluetooth
+systemctl enable bluetooth
+echo -e "load-module module-bluetooth-policy\nload-module module-bluetooth-discover" >> /etc/pulse/system.pa 
 else
 echo "nothing to do"
 fi
