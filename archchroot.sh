@@ -18,7 +18,14 @@ else
 pacman -S intel-ucode xf86-video-intel mesa
 fi
 pacman -S os-prober grub efibootmgr
+
+echo -e "which type is your boot?\n1.uefi 2.mbr or virtualbox"
+read boot
+if [ $boot -eq 2 ];then
 grub-install --target=x86_64-efi  --efi-directory=/boot/efi --bootloader-id=Archlinux  --recheck
+else
+grub-install --target=i386-pc /dev/sdb
+fi
 grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S iw wpa_supplicant dialog  netctl
 systemctl enable dhcpcd
@@ -38,9 +45,9 @@ else
 echo "nothing to do"
 fi
 
-pacman -S ttf-dejavu wqy-microhei wqy-zenhei plasma kde-applications ntfs-3g sddm sddm-kcm networkmanager netctl xdg-user-dirs unzip unrar neofetch
-pacman -Rsn blinken bomber bovo granatier kajongg kanagram kapman katomic kblackbox kblocks kbounce kbreakout kdiamond kfourinline kgoldrunner khangman kigo killbots kiriki kjumpingcube klickety kmahjongg kmines knetwalk knights kolf kollision klines konquest kpatience kreversi ksirk ksnakeduel kspaceduel ksquares ksudoku kubrick lskat knavalbattle palapeli picmi ktuberling kshisen akregator kbackup kgpg kopete artikulate dragon  juk k3b kmix cervisia ktnef umbrello kteatime kig ktouch kturtle kmplot kalgebra kalzium kbruch marble kgeography klettres kwordquiz minuet parley step rocs kleopatra konqueror kdepim-addons
-systemctl enable NetworkManager sddm dhcpcd 
+pacman -S ttf-dejavu wqy-microhei wqy-zenhei plasma kde-applications ntfs-3g sddm sddm-kcm networkmanager netctl xdg-user-dirs unzip unrar neofetch;then
+pacman -Rsn blinken bomber bovo granatier kajongg kanagram kapman katomic kblackbox kblocks kbounce kbreakout kdiamond kfourinline kgoldrunner khangman kigo killbots kiriki kjumpingcube klickety kmahjongg kmines knetwalk knights kolf kollision klines konquest kpatience kreversi ksirk ksnakeduel kspaceduel ksquares ksudoku kubrick lskat knavalbattle palapeli picmi ktuberling kshisen akregator kbackup kgpg kopete artikulate dragon  juk k3b kmix cervisia ktnef umbrello kteatime kig ktouch kturtle kmplot kalgebra kalzium kbruch marble kgeography klettres kwordquiz minuet parley step rocs kleopatra konqueror kdepim-addons;then
+systemctl enable NetworkManager sddm dhcpcd ;then
 sddm --example-config > /etc/sddm.conf
 
 echo -e "if your device have bluetooth?\n1.yes 2.no"
