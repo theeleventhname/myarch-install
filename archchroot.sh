@@ -45,17 +45,15 @@ else
 echo "nothing to do"
 fi
 
-pacman -S ttf-dejavu wqy-microhei wqy-zenhei plasma kde-applications ntfs-3g sddm sddm-kcm networkmanager netctl xdg-user-dirs unzip unrar neofetch;then
-pacman -Rsn blinken bomber bovo granatier kajongg kanagram kapman katomic kblackbox kblocks kbounce kbreakout kdiamond kfourinline kgoldrunner khangman kigo killbots kiriki kjumpingcube klickety kmahjongg kmines knetwalk knights kolf kollision klines konquest kpatience kreversi ksirk ksnakeduel kspaceduel ksquares ksudoku kubrick lskat knavalbattle palapeli picmi ktuberling kshisen akregator kbackup kgpg kopete artikulate dragon  juk k3b kmix cervisia ktnef umbrello kteatime kig ktouch kturtle kmplot kalgebra kalzium kbruch marble kgeography klettres kwordquiz minuet parley step rocs kleopatra konqueror kdepim-addons;then
-systemctl enable NetworkManager sddm dhcpcd ;then
+pacman -S ttf-dejavu wqy-microhei wqy-zenhei plasma kde-applications ntfs-3g sddm sddm-kcm networkmanager netctl xdg-user-dirs unzip unrar neofetch
+pacman -Rsn blinken bomber bovo granatier kajongg kanagram kapman katomic kblackbox kblocks kbounce kbreakout kdiamond kfourinline kgoldrunner khangman kigo killbots kiriki kjumpingcube klickety kmahjongg kmines knetwalk knights kolf kollision klines konquest kpatience kreversi ksirk ksnakeduel kspaceduel ksquares ksudoku kubrick lskat knavalbattle palapeli picmi ktuberling kshisen akregator kbackup kgpg kopete artikulate dragon  juk k3b kmix cervisia ktnef umbrello kteatime kig ktouch kturtle kmplot kalgebra kalzium kbruch marble kgeography klettres kwordquiz minuet parley step rocs kleopatra konqueror kdepim-addons
+systemctl enable NetworkManager sddm dhcpcd 
 sddm --example-config > /etc/sddm.conf
 
 echo -e "if your device have bluetooth?\n1.yes 2.no"
 read $bluetooth
 if [ $bluetooth -eq 1 ];then
-pacman -S bluez bluez-utils pulseaudio-bluetooth
-systemctl enable bluetooth
-echo -e "load-module module-bluetooth-policy\nload-module module-bluetooth-discover" >> /etc/pulse/system.pa 
+pacman -S bluez bluez-utils pulseaudio-bluetooth;systemctl enable bluetooth;echo -e "load-module module-bluetooth-policy\nload-module module-bluetooth-discover" >> /etc/pulse/system.pa 
 else
 echo "nothing to do"
 fi
