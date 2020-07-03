@@ -16,9 +16,9 @@ read root
 mkfs.fat -F32 /dev/$boot
 mkfs.ext4 /dev/$root
 
-mount $root /mnt
+mount /dev/$root /mnt
 mkdir -p /mnt/boot/efi
-mount $boot /mnt/boot/efi
+mount /dev/$boot /mnt/boot/efi
 
 sed -i "7i# 清华大学\nServer = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch\n## 163\nServer = http://mirrors.163.com/archlinux/\$repo/os/\$arch\n## aliyun\nServer = http://mirrors.aliyun.com/archlinux/\$repo/os/\$arch" /etc/pacman.d/mirrorlist
 pacman -Syy
