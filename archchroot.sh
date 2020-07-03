@@ -60,5 +60,5 @@ else
 echo "nothing to do"
 fi
 
-echo "please run xdg-user-dirs-update --force after login as local user" >> /home/$user/notice.txt
+echo "please run xdg-user-dirs-update --force after login as local user" <> /home/$user/notice.txt
 exit
