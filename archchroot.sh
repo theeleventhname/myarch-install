@@ -19,7 +19,7 @@ pacman -S intel-ucode xf86-video-intel mesa
 fi
 pacman -S os-prober grub efibootmgr
 
-echo -e "which type is your boot?\n1.uefi 2.mbr or virtualbox"
+echo -e "which type is your boot?\n1.uefi or virtualbox 2.mbr "
 read uefi
 if [ $uefi -eq 1 ];then
 grub-install --target=x86_64-efi  --efi-directory=/boot/efi --bootloader-id=Archlinux  --recheck
