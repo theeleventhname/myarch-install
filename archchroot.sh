@@ -20,11 +20,14 @@ fi
 pacman -S os-prober grub efibootmgr
 
 echo -e "which type is your boot?\n1.uefi 2.mbr or virtualbox"
-read boot
-if [ $boot -eq 2 ];then
+read uefi
+if [ $uefi -eq 2 ];then
 grub-install --target=x86_64-efi  --efi-directory=/boot/efi --bootloader-id=Archlinux  --recheck
 else
-grub-install --target=i386-pc /dev/sdb
+lsblk
+echo "input boot disk"
+read mbr
+grub-install --target=i386-pc /dev/$mbr
 fi
 grub-mkconfig -o /boot/grub/grub.cfg
 pacman -S iw wpa_supplicant dialog  netctl
