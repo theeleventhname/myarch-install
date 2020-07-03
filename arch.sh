@@ -27,5 +27,6 @@ pacstrap /mnt base linux linux-firmware   base-devel  vim vi dhcpcd
 genfstab -U /mnt >> /mnt/etc/fstab
 
 cp archchroot.sh /mnt/root/
-echo "please run chmod +x  archchroot.sh ;./archchroot.sh" 
+echo "please run cd ;chmod +x  archchroot.sh ;./archchroot.sh" 
 arch-chroot /mnt
+reboot
