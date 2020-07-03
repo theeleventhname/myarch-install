@@ -20,7 +20,7 @@ mount $root /mnt
 mkdir -p /mnt/boot/efi
 mount $boot /mnt/boot/efi
 
-sed -i "7iServer = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch" /etc/pacman.d/mirrorlist
+sed -i "7i# 清华大学\nServer = https://mirrors.tuna.tsinghua.edu.cn/archlinux/\$repo/os/\$arch\n## 163\nServer = http://mirrors.163.com/archlinux/\$repo/os/\$arch\n## aliyun\nServer = http://mirrors.aliyun.com/archlinux/\$repo/os/\$arch" /etc/pacman.d/mirrorlist
 pacman -Syy
 
 pacstrap /mnt base linux linux-firmware   base-devel  vim vi dhcpcd
