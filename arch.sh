@@ -8,7 +8,7 @@ read wipedisk
 
 fdisk /dev/$wipedisk
 
-echo -e "which type is your device?\n1.uefi 2.mbr or virtualbox"
+echo -e "which type is your device?\n1.uefi or virtualbox 2.mbr "
 read uefi
 
 
