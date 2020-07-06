@@ -4,7 +4,7 @@ hwclock --systohc
 
 echo -e "en_US.UTF-8 UTF-8\nzh_CN.UTF-8 UTF-8\nzh_CN.GBK GBK" >> /etc/locale.gen
 locale-gen 
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "LANG=zh_CN.UTF-8" > /etc/locale.conf
 
 echo "archlinux" > /etc/hostname
 echo -e "127.0.0.1   localhost\n::1              localhost\n127.0.1.1 archlinux.localdomain archlinux" > /etc/hosts
